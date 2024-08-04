@@ -5,7 +5,6 @@ import { useUploadThing } from "~/utils/uploadthing";
 import { toast } from "sonner";
 import { usePostHog } from "posthog-js/react";
 
-// inferred input off useUploadThing
 type Input = Parameters<typeof useUploadThing>;
 
 const useUploadThingInputProps = (...args: Input) => {
@@ -18,7 +17,6 @@ const useUploadThingInputProps = (...args: Input) => {
     const result = await $ut.startUpload(selectedFiles);
 
     console.log("uploaded files", result);
-    // TODO: persist result in state maybe?
   };
 
   return {
@@ -80,7 +78,7 @@ export function SimpleUploadButton() {
     onUploadBegin() {
       posthog.capture("upload_begin");
       toast(
-        <div className="flex items-center gap-2 text-white">
+        <div className="flex items-center gap-2">
           <LoadingSpinnerSVG /> <span className="text-lg">Uploading...</span>
         </div>,
         {
