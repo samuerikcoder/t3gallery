@@ -1,5 +1,4 @@
 import { clerkClient } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
 import { Button } from "~/components/ui/button";
 import { deleteImage, getImage } from "~/server/queries";
 
